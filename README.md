@@ -55,3 +55,18 @@ npm install
 
 # Run the development server  
 npm run dev  
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
+
+---
+
+## 🔗 Links
+
+- **Live Demo**: [ProjectHub](https://project-hub-sand.vercel.app/)  
+- **Report Issues**: [Issues](https://github.com/dhruvarne22/projecthub/issues)  
+
+---
+
+Bring your projects to life and inspire the world with **ProjectHub**! 🌟
