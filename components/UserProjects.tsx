@@ -3,6 +3,7 @@ import { PROJECT_BY_AUTHOR_QUERY } from '@/sanity/lib/queries';
 import { project } from '@/sanity/schemaTypes/project';
 import React from 'react'
 import ProjectCard, { ProjectTypeCard } from './ProjectCard';
+import { ThreeDCardDemo } from './AirCard';
 
 const UserProjects = async ({id} : {id:string}) => {
 
@@ -13,7 +14,7 @@ const UserProjects = async ({id} : {id:string}) => {
 
 {projects.length > 0 ? (
         projects.map((project: ProjectTypeCard) => (
-          <ProjectCard key={project._id} post={project} />
+   <ThreeDCardDemo key={project._id} post={project}/>
         ))
       ) : (
         <p className="no-result">No posts yet</p>

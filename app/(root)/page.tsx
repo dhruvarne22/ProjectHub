@@ -4,7 +4,8 @@ import ProjectCard, {ProjectTypeCard} from "@/components/ProjectCard";
 import { PROJECT_QUERY } from "@/sanity/lib/queries";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
-
+import { ThreeDCardDemo } from "@/components/AirCard";
+import { Boxes } from "@/components/ui/background-boxes";
 
 
 export default async function Home({searchParams} : {
@@ -23,26 +24,34 @@ const {data: posts} = await sanityFetch({query : PROJECT_QUERY, params});
   return (
     <>
 
-    <section className="pink_container">
-    <h1 className="heading">
-      Create Your Project <br />Connect With Like-Minded People
+
+
+
+
+ <div className="h-[730px] relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+        <div className="absolute inset-0 w-full h-full  [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        <Boxes />
+        <h1 className="heading relative">
+      Get Projects Ideas<br />At Your Fingertips
     </h1>
-    < p className="sub-heading !max-w-3xl">Submit Project, Vote on Idea and Get Noticed By Like Minded-People</p>
-
-
+    < p className="sub-heading !max-w-3xl relative">Be Recognized in the socieity by contributing your project.</p>
     <SearchForm query={query}/>
-    </section>
+
+      </div>
+
+
+
+
      
 <section className="section_container">
   <p className="text-30-semibold"
   >{query ? `Search results for "${query}"` : 'Trendy Projects'}</p>
 
 
- <ul className="mt-7 card_grid">
+ <ul className="mt-7 card_grid grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-1 justify-center ">
   {posts?.length > 0 ? (
 posts.map((post: ProjectTypeCard, index:number)=> (
-  <ProjectCard key={post?._id} post={post}/>
-  
+<ThreeDCardDemo key={post._id} post={post}/>
 ))
   ): (
     <p className="no-results"> No Project Found</p>

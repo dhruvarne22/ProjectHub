@@ -9,7 +9,7 @@ const SearchForm = ({query} : {query?:string}) => {
         <Form
         action="/"
         scroll={false}
-        className='search-form'
+        className='search-form  relative'
         >
 
             <input

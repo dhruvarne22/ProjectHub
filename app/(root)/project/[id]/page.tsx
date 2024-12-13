@@ -8,6 +8,7 @@ import React, { Suspense } from 'react';
 import markdownit from "markdown-it";
 import View from '@/components/View';
 import ProjectCard, { ProjectTypeCard } from '@/components/ProjectCard';
+import { Boxes } from '@/components/ui/background-boxes';
 const md = markdownit();
 
 
@@ -28,12 +29,20 @@ const [post, {select : editorPosts}]  = await Promise.all([
   if (!post) return notFound();
   const parsedContent = md.render(post?.details || "");
   return <>
-    <section className="pink_container !min-h-[230px]">
-      <p className="tag">{formatDate(post?._createdAt)}</p>
 
-      <h1 className="heading">{post.title}</h1>
-      <p className="sub-heading !max-w-5xl">{post.description}</p>
-    </section>
+
+    <div className="h-96 relative w-full overflow-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+        <div className="absolute inset-0 w-full h-full bg-slate-900 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+  
+        <Boxes />
+      
+        <p className="tag relative">{formatDate(post?._createdAt)}</p>
+
+<h1 className="heading relative">{post.title}</h1>
+<p className="sub-heading !max-w-5xl relative">{post.description}</p>
+      </div>
+
+
 
     <section className="section_container">
       <img
